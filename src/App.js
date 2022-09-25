@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import Shop from './components/Shop/Shop';
 
 function App() {
+  const [catagory,setCetagory]=useState([])
+  const getCetagory=(cetagory)=>{
+    setCetagory(cetagory)
+    
+  }
+  //console.log(catagory)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header menu={catagory}></Header>
+     
+     <Shop getCetagory={getCetagory}/>
     </div>
   );
 }
