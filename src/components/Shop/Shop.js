@@ -3,8 +3,8 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
 
-const Shop = ({getCetagory}) => {
-    //console.log(getCetagory)
+const Shop = ({getCetagory,activeItem}) => {
+    console.log(activeItem)
         const [products, setProducts] = useState([])
         useEffect(() => {
             fetch('https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json')
@@ -25,7 +25,7 @@ const Shop = ({getCetagory}) => {
             <div className = 'shop-container'>
             
             <div className = "products-container"> {
-                products.map(product => <Product product = {product}add={()=>addToCart(product)} > </Product>
+                    products.map(product => <Product activeItem={activeItem } product = {product}add={()=>addToCart(product)} > </Product>
                  )
                 } 
                 <h1> { products.length } </h1>

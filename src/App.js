@@ -5,18 +5,24 @@ import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
 
 function App() {
-  const [catagory,setCetagory]=useState([])
+  const [cetagory, setCetagory] = useState([])
+  const [activeItem,setActiveItem]=useState()
   const getCetagory=(cetagory)=>{
+    
     setCetagory(cetagory)
     
   }
-  //console.log(catagory)
+  const getActiveItem = (activeItem) => {
+    setActiveItem(activeItem)
+  }
+//  console.log(activeItem)
   
   return (
     <div>
-      <Header menu={catagory}></Header>
+      <Header menu={cetagory} getActiveItem={getActiveItem }></Header>
+      <Shop getCetagory={getCetagory} activeItem={activeItem} ></Shop>
      
-     <Shop getCetagory={getCetagory}/>
+     
     </div>
   );
 }

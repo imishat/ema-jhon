@@ -2,13 +2,15 @@ import React from 'react';
 import'./Product.css'
 
 
-const Product = (props) => {
-  // console.log(props)
-    const{add,product}=props
-    const { id, category, seller, price, name,img,ratings} = product
+const Product = ({ add, product,activeItem }) => {
+  console.log(activeItem)
+    // const { add, product } = props;
+    const { id, category, seller, price, name, img, ratings } = product
+     
     return ( 
-       <div className = 'product'>
-           <img src={img?img:'../../images/giphy.gif'} alt="" />
+        <>
+    {     category=== activeItem&& <div className = 'product'>
+           <img src={img} alt="" />
             <div className="product-info">
         <p className='product-name'> Pruduct-Name:{name}</p>
         <p><small> Price:{price}</small></p>
@@ -24,7 +26,7 @@ const Product = (props) => {
         <p>Add to Cart</p></button>
        
        
-        </div>
+        </div>}</>
     );
 };
 
